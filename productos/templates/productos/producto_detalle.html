@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ producto.nombre }} - Tienda de Productos para Mascotas</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'productos/css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>{{ producto.nombre }}</h1>
+    </header>
+    
+    <main>
+        <section class="producto-detalle">
+            <img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}">
+            <div class="detalle">
+                <h3>{{ producto.nombre }}</h3>
+                <p>${{ producto.precio }}</p>
+                <p>{{ producto.descripcion }}</p>
+                <!-- productos/producto_detalle.html -->
+                <form action="{% url 'productos:agregar_al_carrito' producto.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn-comprar">Añadir al Carrito</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Tienda de Productos para Mascotas | Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

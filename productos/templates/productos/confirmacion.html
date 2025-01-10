@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmación de Compra</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'productos/css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Compra Confirmada</h1>
+    </header>
+
+    <main>
+        <h2>¡Muchas gracias por preferirnos!</h2>
+        <p>Tu compra ha sido confirmada con éxito.</p>
+        <p>Realizaste este pedido <strong>{{ cantidad_pedidos }}</strong> veces.</p>
+        <a href="{% url 'productos:index' %}" class="btn">Volver a la Tienda</a>
+    </main>
+
+    <footer>
+        <p>© 2025 Tienda de Productos para Mascotas | Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

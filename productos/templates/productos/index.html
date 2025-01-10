@@ -1,0 +1,45 @@
+<!-- productos/index.html -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Productos para Mascotas</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'productos/css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Tienda de Productos para Mascotas</h1>
+        <!-- Enlace para acceder al carrito -->
+        <a href="{% url 'productos:ver_carrito' %}">Ver Carrito</a>
+    </header>
+    
+    <main>
+        <section class="productos">
+            <h2>¡Encuentra lo mejor para tu mascota!</h2>
+            <div class="producto-grid">
+                {% for producto in productos %}
+                <div class="producto">
+                    <img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}">
+                    <h3>{{ producto.nombre }}</h3>
+                    <p>${{ producto.precio }}</p>
+                    <p>{{ producto.descripcion|slice:":100" }}...</p>
+                    <a href="{% url 'productos:producto_detalle' producto.id %}" class="btn-detalle">Ver Detalles</a>
+                    <!-- Formulario para agregar al carrito -->
+                    <form action="{% url 'productos:agregar_al_carrito' producto.id %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="btn-comprar">Agregar al Carrito</button>
+                    </form>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Tienda de Productos para Mascotas | Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

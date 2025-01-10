@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Carrito</title>
+    {% load custom_filters %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'productos/css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Mi Carrito</h1>
+        <a href="{% url 'productos:index' %}">Volver a la Tienda</a>
+    </header>
+
+    <main>
+        {% if productos_con_totales %}
+        
+        <h2>Productos en tu carrito:</h2>
+        <ul class="carrito-lista">
+            {% for producto in productos_con_totales %}
+                <li class="carrito-item">
+                    <div class="carrito-item-info">
+                        <img src="{{ producto.item.producto.imagen.url }}" alt="{{ producto.item.producto.nombre }}" width="100">
+                        <div>
+                            <h3>{{ producto.item.producto.nombre }}</h3>
+                            <p>Cantidad: {{ producto.item.cantidad }}</p>
+                            <p>Precio: ${{ producto.item.producto.precio }}</p>
+                            <p>Total: ${{ producto.total }}</p> <!-- Usamos el total calculado en la vista -->
+                        </div>
+                    </div>
+                    <!-- Botón para eliminar el producto -->
+                    <form action="{% url 'productos:eliminar_producto' producto.item.id %}" method="post" class="form-eliminar">
+                        {% csrf_token %}
+                        <button type="submit" class="btn-eliminar">Eliminar</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+        <h3>Total a pagar: ${{ total_general }}</h3> <!-- Mostrar el total global del carrito -->
+
+        <!-- Botón para vaciar el carrito -->
+        <form action="{% url 'productos:limpiar_carrito' %}" method="post" class="form-limpiar">
+            {% csrf_token %}
+            <button type="submit" class="btn-limpiar">Vaciar Carrito</button>
+        </form>
+
+        <!-- Botón para confirmar la compra -->
+        <form action="{% url 'productos:confirmar_compra' %}" method="post" class="form-confirmar">
+            {% csrf_token %}
+            <label for="cantidad_pedidos">¿Cuántas veces deseas hacer este pedido?</label>
+            <input type="number" id="cantidad_pedidos" name="cantidad_pedidos" min="1" value="1" required>
+            <button type="submit" class="btn-confirmar">Confirmar Compra</button>
+        </form>
+
+        {% else %}
+            <p>Tu carrito está vacío.</p>
+        {% endif %}
+    </main>
+
+    <footer>
+        <p>© 2025 Tienda de Productos para Mascotas | Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
