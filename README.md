@@ -1,5 +1,5 @@
 # *ABP_TIENDA_MASCOTAS*
-INTRODUCCIÓN
+# *INTRODUCCIÓN*
 Bienvenidos ala tienda de mascotas , el lugar donde el bienestar y la felicidad de tu mascota son nuestra prioridad. Sabemos que tus compañeros de vida merecen lo mejor, por eso nos hemos dedicado a ofrecer una amplia variedad de productos de calidad para satisfacer las necesidades de cada especie, raza y personalidad. Desde alimentos nutritivos y suplementos para mantener a tu mascota saludable, hasta juguetes interactivos y accesorios que garantizan su diversión y comodidad, en nuestra tienda encontrarás todo lo que tu amigo peludo, emplumado o escamoso necesita para llevar una vida plena y feliz.
 
  trabajamos con marcas reconocidas y confiables, y seleccionamos cada producto con el mayor cuidado, asegurándonos de ofrecer solo lo mejor para tu mascota. Además, contamos con personal altamente capacitado y apasionado por los animales, dispuesto a brindarte asesoría personalizada y recomendaciones adaptadas a las características particulares de tu mascota, para que puedas tomar decisiones informadas sobre los productos que más le beneficiarán.
