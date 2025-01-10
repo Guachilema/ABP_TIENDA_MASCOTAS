@@ -50,3 +50,4 @@ Este análisis permite diseñar un sistema que optimiza la gestión de la tienda
 ![image](https://github.com/user-attachments/assets/25d645be-157a-433e-a460-13c87b1aa21d)
 
 # *DESARROLLO DEL PROYECTO*
+tienda_mascotas.zip
